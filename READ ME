@@ -1,0 +1,28 @@
+I used a ESP8266 Feather Huzzah for this project.
+Pin connections
+
+Feather ---> A4988
+
+16 ------> EN
+
+0 --------> DIR
+
+13 ------> STEP
+
+GND ---> GND
+
+3V ------> VDD
+
+
+
+A4988 ----> Stepper Motor
+
+1B ----> Blue
+
+1A ----> Red
+
+2A ----> Green
+
+2B ----> Black
+
+The RESET and SLEEP pins on the motor driver also want a wire connecting the two together.
