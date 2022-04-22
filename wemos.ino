@@ -10,8 +10,8 @@
 boolean connectWifi();
 
 //on/off callbacks 
-bool deckingCurtainOn();
-bool deckingCurtainOff();
+bool BlindsOn();
+bool BlindsOff();
 
 // Change this before you flash
 const char* ssid = "Your_Network_SSID";
@@ -24,7 +24,7 @@ UpnpBroadcastResponder upnpBroadcastResponder;
 Switch *office = NULL;
 //Switch *kitchen = NULL;
 
-bool isdeckingCurtainOn = false;
+bool isBlindsn = false;
 //bool isKitchenLightstsOn = false;
 
 
@@ -57,7 +57,7 @@ void setup()
     
     // Define your switches here. Max 10
     // Format: Alexa invocation name, local port no, on callback, off callback
-    office = new Switch("decking curtains", 80, deckingCurtainOn, deckingCurtainOff);
+    office = new Switch("decking curtains", 80, BlindsOn, BlindsOff);
 
     Serial.println("Adding switches upnp broadcast responder");
     upnpBroadcastResponder.addDevice(*office);
@@ -105,7 +105,7 @@ void loop()
       
 }
 
-bool deckingCurtainOn() {
+bool BlindsOn() {
     Serial.println("Switch 1 turn on ...");
 
 
@@ -113,18 +113,18 @@ bool deckingCurtainOn() {
           closeCurtain();
 
           
-    isdeckingCurtainOn = true;
-    return isdeckingCurtainOn;
+    isBlindsOn = true;
+    return isBlindsOn;
 }
 
-bool deckingCurtainOff() {
+bool BlindsOff() {
     Serial.println("Switch 1 turn off ...");
 
           Serial.print("Curtain turned off...  Opening the curtain...");
           openCurtain();
 
-    isdeckingCurtainOn = false;
-    return isdeckingCurtainOn;
+    isBlindsOn = false;
+    return isBlindsOn;
 }
 
 // connect to wifi – returns true if successful or false if not
